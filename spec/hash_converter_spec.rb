@@ -10,7 +10,7 @@ RSpec.describe HashConverter, type: :model do
   describe "#convert" do
     context "nil hash" do
       it "returns nil" do
-        allow(converter).to receive(:convert).and_return({})
+        # allow(converter).to receive(:convert).and_return({})
 
         output_hash = converter.convert(nil)
 
@@ -21,7 +21,7 @@ RSpec.describe HashConverter, type: :model do
     context "correct hash" do
       it "empty hash" do
         hash = {}
-        allow(converter).to receive(:convert).and_return({})
+        # allow(converter).to receive(:convert).and_return({})
 
         output_hash = converter.convert(hash)
 
@@ -31,7 +31,7 @@ RSpec.describe HashConverter, type: :model do
       it "trivial hash" do
         hash = {a: :a1}
         expected_hash = {a: {a1: {}}}
-        allow(converter).to receive(:convert).and_return(expected_hash)
+        # allow(converter).to receive(:convert).and_return(expected_hash)
 
         output_hash = converter.convert(hash)
 
@@ -41,7 +41,7 @@ RSpec.describe HashConverter, type: :model do
       it "hash with array" do
         hash = {a: [:a1, :a2]}
         expected_hash = {a: {a1: {}, a2: {}}}
-        allow(converter).to receive(:convert).and_return(expected_hash)
+        # allow(converter).to receive(:convert).and_return(expected_hash)
 
         output_hash = converter.convert(hash)
 
@@ -51,7 +51,7 @@ RSpec.describe HashConverter, type: :model do
       it "hash with hashes" do
         hash = {a: {a1: :a2}}
         expected_hash = {a: {a1: {a2: {}}}}
-        allow(converter).to receive(:convert).and_return(expected_hash)
+        # allow(converter).to receive(:convert).and_return(expected_hash)
 
         output_hash = converter.convert(hash)
 
@@ -73,7 +73,7 @@ RSpec.describe HashConverter, type: :model do
           d: {d1: {}, d2: {}, d3: {}, d4: {d5: {}}},
           e: {e1: {e2: {e3: {}}}, e4: {e5: {}, e6: {}}}
         }
-        allow(converter).to receive(:convert).and_return(expected_hash)
+        # allow(converter).to receive(:convert).and_return(expected_hash)
 
         output_hash = converter.convert(hash)
 
